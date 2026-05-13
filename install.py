@@ -3,6 +3,7 @@ import zipfile
 import sys
 import shutil, glob
 import subprocess
+import platform
 
 path = input("Enter the path of a zip file, a directory or a github repository: ")
 name = input("Enter the name of the plugin: ")

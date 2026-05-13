@@ -3,6 +3,7 @@ import zipfile
 import sys
 import shutil, glob
 import subprocess
+import platform
 
 print("[LOG] Checking for equicord...")
 if not os.path.exists("equicord"):

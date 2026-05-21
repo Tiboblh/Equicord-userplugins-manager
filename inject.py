@@ -33,10 +33,12 @@ else:
 print("[LOG] Killing Discord...")
 if platform.system() == "Windows":
     os.system("taskkill /f /im Discord.exe")
-    os.system("cd equicord && pnpm install && pnpm build && echo '0' | pnpm inject")
+    os.system("cd equicord && pnpm install && pnpm build")
+    os.system("pnpm inject")
 else:
     os.system("killall -9 Discord")
-    os.system("cd equicord && pnpm install && pnpm build && echo '0' | pnpm inject")
+    os.system("cd equicord && pnpm install && pnpm build")
+    os.system("cd equicord && pnpm inject")
 print("[LOG] Equicord injected successfully.")
 print("[LOG] Restarting Discord...")
 subprocess.Popen(

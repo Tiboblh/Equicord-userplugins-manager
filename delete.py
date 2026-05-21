@@ -48,10 +48,12 @@ shutil.rmtree("equicord/src/userplugins/" + name)
 print("[LOG] Plugin deleted from equicord/src/userplugins/" + name + "/")
 if platform.system() == "Windows":
     os.system("taskkill /f /im Discord.exe")
-    os.system("cd equicord && pnpm install && pnpm build && echo '0' | pnpm inject")
+    os.system("cd equicord && pnpm install && pnpm build")
+    subprocess.run(["pnpm", "inject"], input=b"\n", cwd="equicord")
 else:
     os.system("killall -9 Discord")
-    os.system("cd equicord && pnpm install && pnpm build && echo '0' | pnpm inject")
+    os.system("cd equicord && pnpm install && pnpm build")
+    subprocess.run(["pnpm", "inject"], input=b"\n", cwd="equicord")
 print("[LOG] Plugin deleted successfully.")
 print("[LOG] Restarting Discord...")
 subprocess.Popen(
